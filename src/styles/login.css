@@ -1,0 +1,15 @@
+#page-loginMembro {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row-reverse;
+}
+
+#loginMembroForm > div {
+    display: flex;
+    flex-direction: column;
+}
+
+#loginMembroForm > div > label {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
