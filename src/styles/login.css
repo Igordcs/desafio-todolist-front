@@ -13,3 +13,12 @@
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+.submitInfo {
+    line-height: 8px;
+    text-align: center;
+}
+
+.submitInfo > a {
+    text-decoration: none;
+}

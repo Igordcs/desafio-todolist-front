@@ -9,10 +9,25 @@
     text-decoration: none;
 }   
 
+#page-header > div {
+    display: flex;
+    width: 95vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #page-header > div > a {
     font-size: 1.6rem;
     color: var(--white);
     text-decoration: none;
     font-family: 'Nunito';
     font-weight: bold;
+}
+
+#page-header > div > a:hover {
+    cursor: pointer;
+}
+
+#page-header > div > svg:hover {
+    cursor: pointer;
 }

@@ -18,7 +18,9 @@ const MembroProvider = ({children}) => {
         if (data.error)
             return alert(data.error);
 
-        setMembroLogado(data);
+        if(!membroLogado)
+            setMembroLogado(data);
+
         navigate("/");
         console.log(data);
     }
@@ -35,6 +37,12 @@ const MembroProvider = ({children}) => {
         navigate("/");
     }
 
+    function handleLogout() {
+        setNome("")
+        setEmail("")
+        setMembroLogado(null)
+    }
+
     function handleEmail(text) {
         setEmail(text);
     }
@@ -49,6 +57,7 @@ const MembroProvider = ({children}) => {
                     nome, 
                     membroLogado, 
                     handleLoginSubmit, 
+                    handleLogout,
                     handleEmail, 
                     handleNome, 
                     handleCadastrarSubmit

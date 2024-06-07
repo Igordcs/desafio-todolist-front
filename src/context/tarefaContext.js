@@ -48,6 +48,8 @@ const TarefaProvider = ({children}) => {
 
         if (data.error)
             return alert(data.error);
+
+        setTarefas((prevTarefas) => prevTarefas.filter((tarefa) => tarefa.id !== id));
         
         return data;
     }
@@ -57,6 +59,12 @@ const TarefaProvider = ({children}) => {
 
         if (data.error)
             return alert(data.error);
+
+        setTarefas((prevTarefas) =>
+            prevTarefas.map((tarefa) =>
+                tarefa.id === id ? { ...tarefa, finalizada: true } : tarefa
+            )
+        );
 
         return data;
     }

@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import '../styles/login.css'
 import { membroContext } from '../context/membroContext';
+import { Link } from 'react-router-dom';
 
 function LoginMembro () {
     const {email, handleEmail, handleLoginSubmit} = useContext(membroContext);
@@ -23,6 +24,10 @@ function LoginMembro () {
                             <button type='submit' className='confirmButton'>Fazer login</button>
                         </form>
                     </main>
+                    <div className='submitInfo'>
+                        <p>Não possui uma conta?</p>
+                        <Link to="/cadastrarMembro" >Cadastre-se</Link>
+                    </div>
                 </div>
             </div>
             <div className='heroImg'>
