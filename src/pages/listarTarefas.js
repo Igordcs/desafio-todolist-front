@@ -5,6 +5,7 @@ import '../styles/ListarTarefas.css'
 import Tarefa from "../components/tarefa";
 import {tarefaContext} from '../context/tarefaContext';
 import { Link } from "react-router-dom";
+import TodoListHeader from "../components/header";
 
 function ListarTarefas () {
     const {carregando, tarefas, getTarefas} = useContext(tarefaContext)
@@ -15,11 +16,7 @@ function ListarTarefas () {
     
     return (
         <div id="page-listarTarefas">
-            <header id="page-header">
-                <div>
-                    <h1>Todolist</h1>
-                </div>
-            </header>
+            <TodoListHeader/>
             <div className="centered">
                 <main className="listContainer">
                     <div className="tarefaListHeader">

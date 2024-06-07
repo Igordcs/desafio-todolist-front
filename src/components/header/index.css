@@ -1,0 +1,18 @@
+#page-header {
+    min-width: 100vw;
+    display: flex;
+    height: 4rem;
+    background-color: var(--primary-color-blue);
+    padding: 12px;
+    padding-bottom: 0;
+    color: var(--white);
+    text-decoration: none;
+}   
+
+#page-header > div > a {
+    font-size: 1.6rem;
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Nunito';
+    font-weight: bold;
+}

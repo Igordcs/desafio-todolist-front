@@ -4,16 +4,6 @@
     min-height: 100vh;
 }
 
-#page-header {
-    min-width: 100vw;
-    display: flex;
-    max-height: 12rem;
-    background-color: var(--primary-color-blue);
-    padding-left: 12px;
-    padding-bottom: 6px;
-    color: var(--white);
-}   
-
 .centered {
     margin-top: 16px;
     display: flex;

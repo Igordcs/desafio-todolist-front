@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import '../styles/EditarTarefa.css'
 import {tarefaContext} from '../context/tarefaContext';
+import { Link } from 'react-router-dom';
 
 function EditarTarefa () {
     const {formData, handleInputChange, handleEditarSubmit} = useContext(tarefaContext)
@@ -9,7 +10,7 @@ function EditarTarefa () {
         <div id="page-editarTarefa">
             <header id="page-header">
                 <div>
-                    <h1>Todolist</h1>
+                    <Link to={"/"}>Todolist</Link >
                 </div>
             </header>
             <div className="centered">

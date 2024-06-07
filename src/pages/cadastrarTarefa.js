@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { tarefaContext } from "../context/tarefaContext";
+import { Link } from "react-router-dom";
 
 function CadastrarTarefa () {
     const {formData, handleInputChange, handleCriarSubmit} = useContext(tarefaContext)
@@ -8,7 +9,7 @@ function CadastrarTarefa () {
         <div id="page-editarTarefa">
             <header id="page-header">
                 <div>
-                    <h1>Todolist</h1>
+                    <Link to={"/"}>Todolist</Link>
                 </div>
             </header>
             <div className="centered">
