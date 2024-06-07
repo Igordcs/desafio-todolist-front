@@ -1,9 +1,10 @@
 import { useContext, useEffect } from "react";
-import { FaSearch, FaStopwatch} from "react-icons/fa";
+import { FaPlus, FaSearch, FaStopwatch} from "react-icons/fa";
 
 import '../styles/ListarTarefas.css'
 import Tarefa from "../components/tarefa";
 import {tarefaContext} from '../context/tarefaContext';
+import { Link } from "react-router-dom";
 
 function ListarTarefas () {
     const {carregando, tarefas, getTarefas} = useContext(tarefaContext)
@@ -21,12 +22,11 @@ function ListarTarefas () {
             </header>
             <div className="centered">
                 <main className="listContainer">
-                    <h2>Lista de tarefas</h2>
-                    <div className="searchContainer">
-                        <div>
-                            <input type="Text" placeholder="Procure uma tarefa"/>
-                            <FaSearch color='#000' size={"24px"} />
-                        </div>
+                    <div className="tarefaListHeader">
+                        <h2>Lista de tarefas</h2>
+                        <Link to={"/cadastrarTarefa"}>
+                            <FaPlus color="#fff" size={"16px"} /> 
+                        </Link>
                     </div>
                     <div className="tarefaContainer">
                         {carregando && <p>Carregando</p>}
