@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import api from './services/api';
 import AppRoutes from './AppRoutes';
 import { MembroProvider } from './context/membroContext';
+import { TarefaProvider } from './context/tarefaContext';
 
 function App() {
   useEffect(() => {
@@ -13,7 +14,9 @@ function App() {
 
   return (
     <MembroProvider>
-      <AppRoutes/>
+      <TarefaProvider>
+        <AppRoutes/>
+      </TarefaProvider>
     </MembroProvider>
   )
 
