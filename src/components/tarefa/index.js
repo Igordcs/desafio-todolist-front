@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { tarefaContext } from "../../context/tarefaContext";
 
 function Tarefa({tarefa}) {
-    const {handleSelecionarTarefa} = useContext(tarefaContext);
+    const {handleSelecionarTarefa, handleDeletarTarefa} = useContext(tarefaContext);
     const [isDescricaoVisivel, setisDescricaoVisivel] = useState(false);
 
     function handleDescricaoVisivel(e) {
@@ -17,7 +17,7 @@ function Tarefa({tarefa}) {
     const colors = {
         ALTA: "#E83F5B",
         MEDIA: "#cbd633",
-        BAIXA: "#DCDDE0"
+        BAIXA: "#000"
     }
     
     return (
@@ -48,7 +48,10 @@ function Tarefa({tarefa}) {
                             Editar tarefa
                             <FaEdit size={"12px"} color="#fff" />
                         </Link>
-                        <button className="buttonExcluir">
+                        <button 
+                            className="buttonExcluir"
+                            onClick={() => handleDeletarTarefa(tarefa.id)}
+                        >
                             Excluir tarefa
                             <FaTrashAlt size={"12px"} color="#fff" />
                         </button>

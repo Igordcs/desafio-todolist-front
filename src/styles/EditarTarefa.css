@@ -1,0 +1,28 @@
+#page-editarTarefa {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.formWrapper {
+    width: 60%;
+    max-width: 540px;
+    padding: 12px;
+    background-color: var(--white);
+}
+
+#formCadastrarTarefa > div {
+    display: flex;
+    flex-direction: column;
+}
+
+#formCadastrarTarefa > div > textarea {
+    resize: none;
+    height: 20vh;
+}
+
+#formCadastrarTarefa > div > select {
+    width: 40%;
+    padding: 0.6rem;
+    margin-bottom: 12px;
+}
