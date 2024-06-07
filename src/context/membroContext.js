@@ -19,6 +19,14 @@ const MembroProvider = ({children}) => {
         console.log(res);
     }
 
+    async function handleLoginSubmit(e) {
+        e.preventDefault();
+
+        const res = await membroService.loginMembro(email);
+        setMembroLogado(res);
+        navigate("/");
+    }
+
     function handleEmail(text) {
         setEmail(text);
     }
@@ -29,7 +37,14 @@ const MembroProvider = ({children}) => {
 
     return (
         <membroContext.Provider
-            value={{email, nome, membroLogado, handleEmail, handleNome, handleCadastrarSubmit}}    
+            value={{email, 
+                    nome, 
+                    membroLogado, 
+                    handleLoginSubmit, 
+                    handleEmail, 
+                    handleNome, 
+                    handleCadastrarSubmit
+                }}    
         >
             {children}
         </membroContext.Provider>
