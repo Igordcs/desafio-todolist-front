@@ -2,7 +2,7 @@ import api from './api';
 
 async function loginMembro(email) {
     try {
-        const {data} = await api.get(`login?=email${email}`)
+        const {data} = await api.get(`membro/login?email=${email}`)
         return data;
     } catch (error) {
         return error;

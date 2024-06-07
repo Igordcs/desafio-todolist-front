@@ -60,6 +60,7 @@ const TarefaProvider = ({children}) => {
         e.preventDefault()
         if (!membroLogado)
             return alert("Você precisa estar logado para criar!")
+        console.log(membroLogado)
         const resp = await tarefaService.criarTarefa(membroLogado.id, formData)
         navigate("/listarTarefas")
         return resp;
