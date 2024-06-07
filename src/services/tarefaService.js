@@ -28,4 +28,19 @@ async function deletarTarefa(id) {
     }
 }
 
-export default {pegarTarefas, editarTarefa, deletarTarefa};
+async function criarTarefa(membro_id, tarefa) {
+    try {
+        const {nome, descricao, prioridade, finalizada, dataTermino} = tarefa
+        const {data} = await api.post(`tarefa/${membro_id}`, {nome, 
+                                                             descricao, 
+                                                             prioridade, 
+                                                             finalizada, 
+                                                             dataTermino
+        })
+        return data;
+    } catch (error) {
+        return error
+    }
+}
+
+export default {pegarTarefas, editarTarefa, deletarTarefa, criarTarefa};
