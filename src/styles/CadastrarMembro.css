@@ -1,0 +1,51 @@
+#page-cadastrarMembro {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row-reverse;
+}
+
+.heroImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    background-color: var(--primary-color-light);
+}
+
+.heroImg > h1 {
+    font-size: 2.6rem;
+    color: var(--white);
+}
+
+.mainFrame {
+    flex: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    padding: 1.8rem;
+    border-radius: 0.4rem;
+    border: 2px solid var(--gray-line);
+}
+
+.formBlock > h2 {
+    margin: 0;
+    line-height: 12px;
+}
+
+#cadastrarMembroForm > div {
+    display: flex;
+    flex-direction: column;
+}
+
+#cadastrarMembroForm > div > label {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+

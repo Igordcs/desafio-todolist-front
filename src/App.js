@@ -2,6 +2,7 @@
 import { useEffect } from 'react';  
 import api from './services/api';
 import AppRoutes from './AppRoutes';
+import { MembroProvider } from './context/membroContext';
 
 function App() {
   useEffect(() => {
@@ -10,7 +11,12 @@ function App() {
     })
   }, [])
 
-  return <AppRoutes/>
+  return (
+    <MembroProvider>
+      <AppRoutes/>
+    </MembroProvider>
+  )
+
 }
 
 export default App;
