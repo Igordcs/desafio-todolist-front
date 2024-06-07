@@ -43,4 +43,13 @@ async function criarTarefa(membro_id, tarefa) {
     }
 }
 
-export default {pegarTarefas, editarTarefa, deletarTarefa, criarTarefa};
+async function finalizarTarefa(tarefaId) {
+    try {
+        const {data} = await api.put(`tarefa/finalizar/${tarefaId}`)
+        return data;
+    } catch (error) {
+        return error
+    }
+}
+
+export default {pegarTarefas, editarTarefa, deletarTarefa, criarTarefa, finalizarTarefa};

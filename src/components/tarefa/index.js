@@ -1,4 +1,4 @@
-import {FaEdit, FaTrashAlt, FaStopwatch} from "react-icons/fa";
+import {FaEdit, FaTrashAlt, FaStopwatch, FaCheck} from "react-icons/fa";
 
 import './index.css'
 import { useContext, useState } from "react";
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { tarefaContext } from "../../context/tarefaContext";
 
 function Tarefa({tarefa}) {
-    const {handleSelecionarTarefa, handleDeletarTarefa} = useContext(tarefaContext);
+    const {handleSelecionarTarefa, handleDeletarTarefa, handleFinalizarTarefa} = useContext(tarefaContext);
     const [isDescricaoVisivel, setisDescricaoVisivel] = useState(false);
 
     function handleDescricaoVisivel(e) {
@@ -41,18 +41,25 @@ function Tarefa({tarefa}) {
                         <p>{tarefa.descricao}</p>
                     </div>
                     <div className="tarefaActions">
+                        <button 
+                            className="buttonFinalizar"
+                            onClick={() => handleFinalizarTarefa(tarefa.id)}
+                        >
+                            Finalizar
+                            <FaCheck size={"12px"} color="#fff" />
+                        </button>
                         <Link 
                             to="/editarTarefa" 
                             className="buttonEditar" 
                             onClick={() => handleSelecionarTarefa(tarefa)}>
-                            Editar tarefa
+                            Editar 
                             <FaEdit size={"12px"} color="#fff" />
                         </Link>
                         <button 
                             className="buttonExcluir"
                             onClick={() => handleDeletarTarefa(tarefa.id)}
                         >
-                            Excluir tarefa
+                            Excluir 
                             <FaTrashAlt size={"12px"} color="#fff" />
                         </button>
                     </div>

@@ -38,6 +38,11 @@ const TarefaProvider = ({children}) => {
         return data;
     }
 
+    async function handleFinalizarTarefa(id) {
+        const data = await tarefaService.finalizarTarefa(id);
+        return data;
+    }
+
     function handleSelecionarTarefa(tarefa) {
         handleInputChange("id", tarefa.id)
         handleInputChange("nome", tarefa.nome)
@@ -73,6 +78,7 @@ const TarefaProvider = ({children}) => {
                     carregando, 
                     formData, 
                     handleEditarSubmit, 
+                    handleFinalizarTarefa,
                     handleCriarSubmit,
                     handleSelecionarTarefa, 
                     handleInputChange, 
