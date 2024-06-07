@@ -1,9 +1,12 @@
 import React, {useState, useContext} from 'react';
 import tarefaService from '../services/tarefaService'
+import {membroContext} from './membroContext';
+import { useNavigate } from 'react-router-dom';
 
 const tarefaContext = React.createContext()
 
 const TarefaProvider = ({children}) => {
+    const {membroLogado} = useContext(membroContext) 
     const [tarefas, setTarefas] = useState([])
     const [carregando, setCarregando] = useState(false)
     const [formData, setFormData] = useState({
@@ -14,6 +17,7 @@ const TarefaProvider = ({children}) => {
         prioridade: 'BAIXA',
         dataTermino: null
     });
+    const navigate = useNavigate()
 
     const handleInputChange = (field, value) => {
         setFormData((prevData) => ({
@@ -43,9 +47,21 @@ const TarefaProvider = ({children}) => {
         handleInputChange("finalizada", tarefa.finalizada)
     }
 
-    async function handleSubmit(e) {
+    async function handleEditarSubmit(e) {
         e.preventDefault()
+        if (!membroLogado)
+            return alert("Você precisa estar logado para editar!")
         const resp = await tarefaService.editarTarefa(formData.id, formData)
+        navigate("/listarTarefas")
+        return resp;
+    }
+
+    async function handleCriarSubmit(e) {
+        e.preventDefault()
+        if (!membroLogado)
+            return alert("Você precisa estar logado para criar!")
+        const resp = await tarefaService.criarTarefa(membroLogado.id, formData)
+        navigate("/listarTarefas")
         return resp;
     }
 
@@ -55,7 +71,8 @@ const TarefaProvider = ({children}) => {
             value={{tarefas, 
                     carregando, 
                     formData, 
-                    handleSubmit, 
+                    handleEditarSubmit, 
+                    handleCriarSubmit,
                     handleSelecionarTarefa, 
                     handleInputChange, 
                     handleDeletarTarefa,

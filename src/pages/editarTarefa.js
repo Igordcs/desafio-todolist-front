@@ -3,7 +3,7 @@ import '../styles/EditarTarefa.css'
 import {tarefaContext} from '../context/tarefaContext';
 
 function EditarTarefa () {
-    const {formData, handleInputChange, handleSubmit} = useContext(tarefaContext)
+    const {formData, handleInputChange, handleEditarSubmit} = useContext(tarefaContext)
 
     return (
         <div id="page-editarTarefa">
@@ -14,7 +14,7 @@ function EditarTarefa () {
             </header>
             <div className="centered">
                 <div className='formWrapper'>
-                    <form id='formCadastrarTarefa' onSubmit={handleSubmit}>
+                    <form id='formCadastrarTarefa' onSubmit={handleEditarSubmit}>
                         <div>
                             <label>Nome</label>
                             <input 
