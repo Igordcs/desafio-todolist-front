@@ -4,8 +4,10 @@ import './index.css'
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { tarefaContext } from "../../context/tarefaContext";
+import { membroContext } from "../../context/membroContext";
 
 function Tarefa({tarefa}) {
+    const {membroLogado} = useContext(membroContext)
     const {handleSelecionarTarefa, handleDeletarTarefa, handleFinalizarTarefa} = useContext(tarefaContext);
     const [isDescricaoVisivel, setisDescricaoVisivel] = useState(false);
 
@@ -48,20 +50,24 @@ function Tarefa({tarefa}) {
                             Finalizar
                             <FaCheck size={"12px"} color="#fff" />
                         </button>
-                        <Link 
-                            to="/editarTarefa" 
-                            className="buttonEditar" 
-                            onClick={() => handleSelecionarTarefa(tarefa)}>
-                            Editar 
-                            <FaEdit size={"12px"} color="#fff" />
-                        </Link>
-                        <button 
-                            className="buttonExcluir"
-                            onClick={() => handleDeletarTarefa(tarefa.id)}
-                        >
-                            Excluir 
-                            <FaTrashAlt size={"12px"} color="#fff" />
-                        </button>
+                        {tarefa.criador.id === membroLogado.id && (
+                            <Link 
+                                to="/editarTarefa" 
+                                className="buttonEditar" 
+                                onClick={() => handleSelecionarTarefa(tarefa)}>
+                                Editar 
+                                <FaEdit size={"12px"} color="#fff" />
+                            </Link>
+                        )}
+                        {tarefa.criador.id === membroLogado.id && (
+                            <button 
+                                className="buttonExcluir"
+                                onClick={() => handleDeletarTarefa(tarefa.id)}
+                            >
+                                Excluir 
+                                <FaTrashAlt size={"12px"} color="#fff" />
+                            </button>
+                        )}
                     </div>
                 </div>
             )}

@@ -13,17 +13,25 @@ const MembroProvider = ({children}) => {
     async function handleCadastrarSubmit(e) {
         e.preventDefault()
 
-        const res = await membroService.cadastrarMembro(nome, email);
-        setMembroLogado(res);
+        const data = await membroService.cadastrarMembro(nome, email);
+
+        if (data.error)
+            return alert(data.error);
+
+        setMembroLogado(data);
         navigate("/");
-        console.log(res);
+        console.log(data);
     }
 
     async function handleLoginSubmit(e) {
         e.preventDefault();
 
-        const res = await membroService.loginMembro(email);
-        setMembroLogado(res);
+        const data = await membroService.loginMembro(email);
+
+        if (data.error)
+            return alert(data.error);
+        
+        setMembroLogado(data);
         navigate("/");
     }
 

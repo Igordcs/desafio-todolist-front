@@ -26,6 +26,16 @@ const TarefaProvider = ({children}) => {
         }));
     };
 
+    const resetFormData = () => {
+        setFormData({
+            id: null,
+            nome: '',
+            descricao: '',
+            finalizada: false,
+            prioridade: 'BAIXA',
+            dataTermino: null
+        })
+    }
     async function getTarefas() {
         setCarregando(true);
         const data = await tarefaService.pegarTarefas()
@@ -35,11 +45,19 @@ const TarefaProvider = ({children}) => {
 
     async function handleDeletarTarefa(id) {
         const data = await tarefaService.deletarTarefa(id);
+
+        if (data.error)
+            return alert(data.error);
+        
         return data;
     }
 
     async function handleFinalizarTarefa(id) {
         const data = await tarefaService.finalizarTarefa(id);
+
+        if (data.error)
+            return alert(data.error);
+
         return data;
     }
 
@@ -54,21 +72,26 @@ const TarefaProvider = ({children}) => {
 
     async function handleEditarSubmit(e) {
         e.preventDefault()
-        if (!membroLogado)
-            return alert("Você precisa estar logado para editar!")
-        const resp = await tarefaService.editarTarefa(formData.id, formData)
+        const data = await tarefaService.editarTarefa(formData.id, formData)
+
+        if (data.error)
+            return alert(data.error);
+
         navigate("/listarTarefas")
-        return resp;
+        resetFormData();
+        return data;
     }
 
     async function handleCriarSubmit(e) {
         e.preventDefault()
-        if (!membroLogado)
-            return alert("Você precisa estar logado para criar!")
-        console.log(membroLogado)
-        const resp = await tarefaService.criarTarefa(membroLogado.id, formData)
+        const data = await tarefaService.criarTarefa(membroLogado.id, formData)
+
+        if (data.error)
+            return alert(data.error)
+
         navigate("/listarTarefas")
-        return resp;
+        resetFormData();
+        return data;
     }
 
 

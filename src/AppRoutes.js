@@ -18,7 +18,6 @@ function AppRoutes() {
     const ProtectedRoute = ({children}) => {
         if(!membroLogado)
             return <Navigate to={"/login"} replace />
-
         return children;
     }
 

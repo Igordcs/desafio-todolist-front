@@ -5,7 +5,7 @@ async function pegarTarefas() {
         const {data} = await api.get('tarefa/');
         return data;
     } catch (error) {
-        return error;
+        return {error: error.response.data.erro};
     }
 }
 
@@ -15,7 +15,7 @@ async function editarTarefa(id, tarefa) {
         const {data} = await api.put(`tarefa/alterar/${id}`, {nome, descricao, prioridade, finalizada, dataTermino})
         return data
     } catch (error) {
-        return error
+        return {error: error.response.data.erro};
     }
 }
 
@@ -24,7 +24,7 @@ async function deletarTarefa(id) {
         const {data} = await api.delete(`tarefa/deletar/${id}`)
         return data
     } catch (error) {
-        return error
+        return {error: error.response.data.erro};
     }
 }
 
@@ -39,7 +39,7 @@ async function criarTarefa(membro_id, tarefa) {
         })
         return data;
     } catch (error) {
-        return error
+        return {error: error.response.data.erro};
     }
 }
 
@@ -48,7 +48,7 @@ async function finalizarTarefa(tarefaId) {
         const {data} = await api.put(`tarefa/finalizar/${tarefaId}`)
         return data;
     } catch (error) {
-        return error
+        return {error: error.response.data.erro};
     }
 }
 
