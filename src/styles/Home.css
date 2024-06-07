@@ -1,0 +1,26 @@
+#page-home {
+    display: flex;
+    flex-direction: row-reverse;
+    min-height: 100vh;
+}
+
+#page-home > .mainFrame {
+    flex-direction: column;
+    gap: 12px;
+}
+
+#page-home > .mainFrame > a {
+    width: 60%;
+    border: 2px solid var(--gray-line);
+    padding: 1.4rem;
+    text-align: center;
+    transition: all 200ms;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #000;
+}
+
+#page-home > .mainFrame > a:hover {
+    background-color: var(--gray-line);
+    cursor: pointer;
+}
