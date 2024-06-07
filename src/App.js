@@ -4,6 +4,7 @@ import api from './services/api';
 import AppRoutes from './AppRoutes';
 import { MembroProvider } from './context/membroContext';
 import { TarefaProvider } from './context/tarefaContext';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   useEffect(() => {
@@ -13,11 +14,13 @@ function App() {
   }, [])
 
   return (
-    <MembroProvider>
-      <TarefaProvider>
-        <AppRoutes/>
-      </TarefaProvider>
-    </MembroProvider>
+    <BrowserRouter>
+      <MembroProvider>
+        <TarefaProvider>
+          <AppRoutes/>
+        </TarefaProvider>
+      </MembroProvider>
+    </BrowserRouter>
   )
 
 }

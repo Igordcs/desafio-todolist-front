@@ -12,15 +12,13 @@ import CadastrarMembro from './pages/cadastrarMembro';
 
 function AppRoutes() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/' Component={Home} />
-                <Route path='/editarTarefa' Component={EditarTarefa} />
-                <Route path='/cadastrarTarefa' Component={CadastrarTarefa} />
-                <Route path='/listarTarefas' Component={ListarTarefas} />
-                <Route path='/cadastrarMembro' Component={CadastrarMembro} />
-            </Routes>
-        </BrowserRouter>
+        <Routes>
+            <Route path='/' Component={Home} />
+            <Route path='/editarTarefa' Component={EditarTarefa} />
+            <Route path='/cadastrarTarefa' Component={CadastrarTarefa} />
+            <Route path='/listarTarefas' Component={ListarTarefas} />
+            <Route path='/cadastrarMembro' Component={CadastrarMembro} />
+        </Routes>
     )
 }
 
