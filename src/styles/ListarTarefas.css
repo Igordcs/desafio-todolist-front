@@ -1,0 +1,58 @@
+#page-listarTarefas {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#page-header {
+    min-width: 100vw;
+    display: flex;
+    max-height: 12rem;
+    background-color: var(--primary-color-blue);
+    padding-left: 12px;
+    padding-bottom: 6px;
+    color: var(--white);
+}   
+
+.centered {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.listContainer {
+    width: 60%;
+    border: 2px solid var(--gray-line);
+}
+
+.listContainer > h2 {
+    text-align: center;
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.searchContainer > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.searchContainer > div > input {
+    width: 80%;
+    margin-right: 8px;
+}
+
+.tarefaContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 12px;
+}

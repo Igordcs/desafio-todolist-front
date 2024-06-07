@@ -1,0 +1,78 @@
+.tarefaWrapper { 
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--gray-line);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 8px;
+    transition: all 200ms;
+}
+
+.tarefaBasicInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.tarefaWrapper:hover {
+    cursor: pointer;
+    background-color: var(--gray-line);
+}
+
+.tarefaTitleWrapper {
+    width: 70%;
+    text-align: left;
+}
+
+.prioridadeWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.tarefaMoreAction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.tarefaDescricao {
+    text-align: left;
+    width: 70%;
+}
+
+.tarefaActions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tarefaActions > button, .tarefaActions > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    padding: 0.6rem;
+    outline: none;
+    border-radius: 4px;
+    transition: all 200ms;
+    border: none;
+    text-decoration: none;
+}
+
+.tarefaActions > button:hover, .tarefaActions > a:hover {
+    cursor: pointer;
+    filter:brightness(1.2);
+}
+
+.buttonEditar {
+    background-color: var(--primary-color-blue);
+}
+
+.buttonExcluir {
+    background-color: var(--red);
+}
+
